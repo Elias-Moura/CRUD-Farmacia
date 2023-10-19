@@ -1,4 +1,4 @@
-package io.farmacia.Generation.dominio.dtos;
+package io.farmacia.Generation.dominio.dtos.Categoria;
 
 import io.farmacia.Generation.dominio.modelos.Categoria;
 
