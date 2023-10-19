@@ -1,8 +1,8 @@
 package io.farmacia.Generation.controllers;
 
-import io.farmacia.Generation.dominio.dtos.DadosAtualizacaoCategoria;
-import io.farmacia.Generation.dominio.dtos.DadosCadastroCategoria;
-import io.farmacia.Generation.dominio.dtos.DadosListagemCategoria;
+import io.farmacia.Generation.dominio.dtos.Categoria.DadosAtualizacaoCategoria;
+import io.farmacia.Generation.dominio.dtos.Categoria.DadosCadastroCategoria;
+import io.farmacia.Generation.dominio.dtos.Categoria.DadosListagemCategoria;
 import io.farmacia.Generation.dominio.modelos.Categoria;
 import io.farmacia.Generation.dominio.repository.CategoriaRepository;
 import jakarta.validation.Valid;
