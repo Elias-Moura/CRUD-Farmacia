@@ -1,7 +1,7 @@
-package dominio.modelos;
+package io.farmacia.Generation.dominio.modelos;
 
-import dominio.dtos.DadosAtualizacaoCategoria;
-import dominio.dtos.DadosCadastroCategoria;
+import io.farmacia.Generation.dominio.dtos.DadosAtualizacaoCategoria;
+import io.farmacia.Generation.dominio.dtos.DadosCadastroCategoria;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -31,8 +31,14 @@ public class Categoria {
     }
 
     public void atualizarInformacoes(DadosAtualizacaoCategoria dados) {
-        this.nome = dados.nome();
-        this.descricao = dados.descricao();
-        this.esta_ativo = dados.esta_ativo();
+        if (dados.nome() != null) {
+            this.nome = dados.nome();
+        }
+        if (dados.descricao() != null) {
+            this.descricao = dados.descricao();
+        }
+        if (dados.esta_ativo() != null) {
+            this.esta_ativo = dados.esta_ativo();
+        }
     }
 }

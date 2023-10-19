@@ -1,10 +1,10 @@
-package controllers;
+package io.farmacia.Generation.controllers;
 
-import dominio.dtos.DadosAtualizacaoCategoria;
-import dominio.dtos.DadosCadastroCategoria;
-import dominio.dtos.DadosListagemCategoria;
-import dominio.modelos.Categoria;
-import dominio.repository.CategoriaRepository;
+import io.farmacia.Generation.dominio.dtos.DadosAtualizacaoCategoria;
+import io.farmacia.Generation.dominio.dtos.DadosCadastroCategoria;
+import io.farmacia.Generation.dominio.dtos.DadosListagemCategoria;
+import io.farmacia.Generation.dominio.modelos.Categoria;
+import io.farmacia.Generation.dominio.repository.CategoriaRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -60,7 +60,6 @@ public class CategoriaController {
     public ResponseEntity delete(@PathVariable Long id){
         Categoria categoria = repository.getReferenceById(id);
         categoria.excluir();
-
         return ResponseEntity.noContent().build();
     }
 
@@ -68,6 +67,7 @@ public class CategoriaController {
     public ResponseEntity<DadosListagemCategoria> put(@Valid @RequestBody DadosAtualizacaoCategoria dados) {
         Categoria categoria = repository.getReferenceById(dados.id());
         categoria.atualizarInformacoes(dados);
+        repository.save(categoria);
         return ResponseEntity.ok(new DadosListagemCategoria(categoria));
     }
 

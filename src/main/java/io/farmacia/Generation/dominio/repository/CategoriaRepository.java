@@ -1,6 +1,6 @@
-package dominio.repository;
+package io.farmacia.Generation.dominio.repository;
 
-import dominio.modelos.Categoria;
+import io.farmacia.Generation.dominio.modelos.Categoria;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 

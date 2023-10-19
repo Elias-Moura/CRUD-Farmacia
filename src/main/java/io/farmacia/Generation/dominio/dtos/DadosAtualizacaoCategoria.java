@@ -1,4 +1,4 @@
-package dominio.dtos;
+package io.farmacia.Generation.dominio.dtos;
 
 public record DadosAtualizacaoCategoria(
         Long id,

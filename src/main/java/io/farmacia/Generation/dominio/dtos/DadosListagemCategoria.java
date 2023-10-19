@@ -1,6 +1,6 @@
-package dominio.dtos;
+package io.farmacia.Generation.dominio.dtos;
 
-import dominio.modelos.Categoria;
+import io.farmacia.Generation.dominio.modelos.Categoria;
 
 public record DadosListagemCategoria(
         Long id,
