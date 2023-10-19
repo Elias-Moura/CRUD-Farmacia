@@ -1,9 +1,11 @@
 package io.farmacia.Generation.dominio.modelos;
 
-import io.farmacia.Generation.dominio.dtos.DadosAtualizacaoCategoria;
-import io.farmacia.Generation.dominio.dtos.DadosCadastroCategoria;
+import io.farmacia.Generation.dominio.dtos.Categoria.DadosAtualizacaoCategoria;
+import io.farmacia.Generation.dominio.dtos.Categoria.DadosCadastroCategoria;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity(name="Categoria")
 @Table(name= "tb_categorias")
@@ -18,16 +20,22 @@ public class Categoria {
     private Long id;
     private String nome;
     private String descricao;
-    private Boolean esta_ativo;
+    @OneToMany(mappedBy = "categoria", cascade= CascadeType.REMOVE)
+    private List<Produto> produtos;
+    private Boolean estaAtivo;
 
     public Categoria(DadosCadastroCategoria dados) {
         this.nome = dados.nome();
         this.descricao = dados.descricao();
-        this.esta_ativo = true;
+        this.estaAtivo = true;
+    }
+
+    public Categoria(Long id){
+        this.id = id;
     }
 
     public void excluir() {
-        this.esta_ativo = false;
+        this.estaAtivo = false;
     }
 
     public void atualizarInformacoes(DadosAtualizacaoCategoria dados) {
@@ -38,7 +46,8 @@ public class Categoria {
             this.descricao = dados.descricao();
         }
         if (dados.esta_ativo() != null) {
-            this.esta_ativo = dados.esta_ativo();
+            this.estaAtivo = dados.esta_ativo();
         }
     }
+
 }
